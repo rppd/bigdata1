@@ -31,3 +31,9 @@ Difficultés:
 Nous avons utilisées beaucoups de frameworks et d'interfaces graphiques, ce qui a permi au final de garder un code simple et direct pour faire nos calculs. 
 En contrepartie, quand quelque chose ne marchait pas, nous avons été forcé de regarder sous le capot de GCP où on retrouvait toutes les technologies et la c'était autrement plus compliqué que si nous l'avions fait à la main
 
+Choix technologiques:
+Le choix du dataset impose l'utilisation de Google BigQuery (seul moyen disponible pour y accéder). Heureusement, cela ouvre la porte à tout un écosystème technologique, dont un certain nombre d'outils sont utiles à ce projet.
+
+Notamment, on choisit d'utiliser le connecteur PySpark+BigQuery, pour rejoindre les techniques vues en cours, et se raccrocher à l'écosystème Google Cloud. De plus, Google Cloud propose un environnement tout trouvé pour utiliser PySpark+BigQuery : en suivant la documentation proposée, on déploie un cluster Google Dataproc Compute, avec plusieurs noeuds (ici 1 master et 2 slaves), déjà configurés pour distribuer des tâches avec PySpark.
+
+On utilise ce cluster avec un Notebook JupyterLab, où le connecteur PySpark est déjà fourni (sous la forme d'un JAR), avec même un échantillon de code Python pour l'activer. Le dataset est alors disponible sur BigQuery, en utilisant simplement une chaîne de caractères l'identifiant.
